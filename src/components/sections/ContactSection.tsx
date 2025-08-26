@@ -1,9 +1,10 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { Phone, Mail, Calendar, ArrowRight, CheckCircle } from 'lucide-react'
 
 export default function ContactSection() {
+  const [mounted, setMounted] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -12,6 +13,10 @@ export default function ContactSection() {
     revenue: '',
     message: ''
   })
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
@@ -92,7 +97,7 @@ export default function ContactSection() {
               Réservez votre appel stratégique
             </h3>
             
-            <form onSubmit={handleSubmit} className="space-y-5">
+            <form onSubmit={handleSubmit} className="space-y-5" suppressHydrationWarning>
               {/* Name */}
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -122,6 +127,8 @@ export default function ContactSection() {
                   onChange={handleChange}
                   className="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:border-black focus:outline-none transition-colors"
                   placeholder="jean@entreprise.com"
+                  autoComplete="email"
+                  suppressHydrationWarning
                 />
               </div>
 
