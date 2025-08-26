@@ -180,7 +180,7 @@ export default function HeroSection() {
 
         {/* Hero Text Content */}
         <motion.div
-          style={{ y: textY, opacity: textOpacity }}
+          style={{ y: textY as any, opacity: textOpacity as any }}
           className="relative z-10 w-full"
         >
           <Container>
@@ -246,14 +246,14 @@ export default function HeroSection() {
             ref={videoEncartRef}
             className="fixed bottom-8 right-8"
             style={{
-              scale: videoScale,
-              x: videoX,
-              y: videoY,
+              scale: videoScale as any,
+              x: videoX as any,
+              y: videoY as any,
               transformOrigin: 'center center',
-              opacity: videoOpacity,
+              opacity: videoOpacity as any,
               zIndex: 99999,
               pointerEvents: scrollYProgress.get() > 0.7 ? 'none' : 'auto'
-            } as React.CSSProperties}
+            } as any}
           >
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
@@ -261,7 +261,7 @@ export default function HeroSection() {
               transition={{ duration: 0.8, delay: 1 }}
               className="relative w-80 h-48 bg-black overflow-hidden shadow-2xl"
               style={{
-                borderRadius: videoBorderRadius
+                borderRadius: videoBorderRadius as any
               }}
             >
             {/* YouTube iframe */}
@@ -336,7 +336,7 @@ export default function HeroSection() {
             <motion.div 
               className="absolute top-2 left-2 bg-red-600 text-white text-xs px-2 py-1 rounded font-semibold"
               style={{
-                opacity: labelOpacity
+                opacity: labelOpacity as any
               }}
             >
               PROCHAIN ÉVÉNEMENT
@@ -351,8 +351,8 @@ export default function HeroSection() {
       <div ref={videoContainerRef} className="sticky top-0 h-screen flex items-center justify-center pointer-events-none hidden">
         <motion.div
           style={{
-            scale: videoScale,
-            borderRadius: videoBorderRadius,
+            scale: videoScale as any,
+            borderRadius: videoBorderRadius as any,
           }}
           className="relative w-full h-full max-w-5xl mx-auto overflow-hidden shadow-2xl"
         >
