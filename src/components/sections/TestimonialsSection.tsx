@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import Image from 'next/image'
 import { Play, ChevronLeft, ChevronRight, Quote } from 'lucide-react'
 
 const testimonials = [
@@ -81,11 +82,15 @@ export default function TestimonialsSection() {
     <section className="relative min-h-screen overflow-hidden">
       {/* Background Image - No Overlay */}
       <div className="absolute inset-0">
-        <img
+        <Image
           key={current.id}
           src={current.image}
           alt=""
-          className="w-full h-full object-cover"
+          fill
+          priority
+          className="object-cover"
+          sizes="100vw"
+          quality={90}
         />
       </div>
 
@@ -146,10 +151,12 @@ export default function TestimonialsSection() {
                         }`}
                         aria-label={`Témoignage de ${testimonial.name}`}
                       >
-                        <img
+                        <Image
                           src={testimonial.avatar}
                           alt={testimonial.name}
-                          className="w-full h-full object-cover"
+                          fill
+                          className="object-cover"
+                          sizes="56px"
                         />
                       </button>
                     ))}
